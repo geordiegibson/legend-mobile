@@ -34,16 +34,16 @@ import androidx.compose.animation.fadeOut
 import androidx.compose.animation.with
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.togetherWith
+import androidx.compose.ui.platform.LocalContext
 
-@OptIn(ExperimentalAnimationApi::class)
 @Composable
 fun Draw() {
     var drawData by remember { mutableStateOf<List<List<DrawModel>>>(emptyList()) }
     val scope = rememberCoroutineScope()
     val drawRepo = DrawRepositoryImpl()
-    val listState = rememberLazyListState();
     var selectedRound by remember { mutableStateOf(0) }
     var rounds by remember { mutableStateOf<List<String>>(emptyList()) }
+    val context = LocalContext.current
 
     LaunchedEffect(Unit) {
         scope.launch {
@@ -62,7 +62,7 @@ fun Draw() {
         ) {
             Text(
                 "Draw",
-                modifier = Modifier.padding(start = 25.dp),
+                modifier = Modifier.padding(start = 35.dp),
                 fontSize = 30.sp,
                 fontFamily = interFamily
             )
@@ -94,9 +94,17 @@ fun Draw() {
                         .padding(start = 10.dp, end = 10.dp)
                 ) {
                     items(matchList) { match ->
+                        val team1LogoId = remember(match.team1LogoUrl) {
+                            context.resources.getIdentifier(match.team1LogoUrl, "drawable", context.packageName)
+                        }
+
+                        val team2LogoId = remember(match.team2LogoUrl) {
+                            context.resources.getIdentifier(match.team2LogoUrl, "drawable", context.packageName)
+                        }
+
                         MatchCard(
-                            team1Logo = painterResource(id = R.drawable.ic_launcher_background),
-                            team2Logo = painterResource(id = R.drawable.ic_launcher_foreground),
+                            team1Logo = painterResource(id = if (team1LogoId != 0) team1LogoId else R.drawable.ic_launcher_background),
+                            team2Logo = painterResource(id = if (team2LogoId != 0) team2LogoId else R.drawable.ic_launcher_foreground),
                             time = match.time,
                             venue = match.venue
                         )

@@ -1,10 +1,12 @@
 package legend.com.DAL
 
 import legend.com.model.DrawModel
+import kotlin.random.Random
 
 class DrawRepositoryImpl : DrawRepository {
     override suspend fun getDrawData(): List<List<DrawModel>> {
         val groupedModels = mutableListOf<List<DrawModel>>()
+        val icons = listOf("burger", "house", "phone");
 
         for (groupIndex in 1..10) {
             val group = mutableListOf<DrawModel>()
@@ -12,8 +14,8 @@ class DrawRepositoryImpl : DrawRepository {
                 group.add(
                     DrawModel(
                         id = i,
-                        "ic_launcher_foreground",
-                        "ic_launcher_foreground",
+                        icons[Random.nextInt(0, 2)],
+                        icons[Random.nextInt(0, 2)],
                         time = "$groupIndex:30", // time is just the index now
                         venue = "Wingham Park"
                     )
