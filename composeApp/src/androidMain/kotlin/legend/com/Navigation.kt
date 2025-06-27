@@ -28,6 +28,9 @@ object Statistics
 @Serializable
 object Leagues
 
+@Serializable
+object Draw
+
 @Composable
 fun AppNavigator(navController: NavHostController) {
     NavHost(navController = navController, startDestination = LandingScreen, enterTransition = { EnterTransition.None }, exitTransition = { ExitTransition.None }) {
@@ -37,6 +40,7 @@ fun AppNavigator(navController: NavHostController) {
         composable<Team> { Team() }
         composable<Statistics> { Statistics() }
         composable<Leagues> { Leagues() }
+        composable<Draw> { Draw() }
 
     }
 }
