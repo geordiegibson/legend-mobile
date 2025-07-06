@@ -17,13 +17,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import legend.com.Fonts.ralewayFamily
+import legend.com.Fonts.interFamily
 
 @Composable
 fun LandingScreen(navController: NavController) {
     MaterialTheme {
         Column(Modifier.fillMaxSize().background(Color.Black), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center) {
-            Text("legend.", color = Color.White, fontSize = 46.sp, fontFamily = ralewayFamily)
+            Text("legend.", color = Color.White, fontSize = 46.sp, fontFamily = interFamily)
             Spacer(Modifier.height(200.dp))
             Button(onClick={navController.navigate(Profile)}, colors = ButtonDefaults.buttonColors(Color.White)
             ) {

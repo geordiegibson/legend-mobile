@@ -15,7 +15,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import legend.com.Fonts.ralewayFamily
+import legend.com.Fonts.interFamily
 
 @Preview
 @Composable
@@ -33,13 +33,13 @@ fun Profile() {
                         "Mac Gibson",
                         Modifier.padding(top = 15.dp, start = 20.dp),
                         fontSize = 32.sp,
-                        fontFamily = ralewayFamily
+                        fontFamily = interFamily
                     )
                     Text(
                         "HLF | 700k",
                         Modifier.padding(start = 20.dp),
                         fontSize = 32.sp,
-                        fontFamily = ralewayFamily
+                        fontFamily = interFamily
                     )
                 }
             }
