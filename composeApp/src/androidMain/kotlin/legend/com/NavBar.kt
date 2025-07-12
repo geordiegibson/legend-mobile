@@ -15,7 +15,7 @@ fun NavBar(modifier: Modifier = Modifier, navController: NavController) {
         modifier = modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.SpaceEvenly
     ) {
-        Button(onClick={navController.navigate(Team)}) { Text("Team")}
+        Button(onClick={navController.navigate(Home)}) { Text("Home")}
         Button(onClick={navController.navigate(Leagues)}) { Text("Leagues")}
         Button(onClick={navController.navigate(Statistics)}) { Text("Statistics")}
         Button(onClick={navController.navigate(Profile)}) { Text("Profile")}
