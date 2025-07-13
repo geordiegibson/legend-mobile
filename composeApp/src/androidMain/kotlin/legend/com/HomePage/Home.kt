@@ -108,7 +108,7 @@ fun Home(client: SportyClient) {
                 modifier = Modifier.weight(1f).height(150.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                drawInformation?.let { UpcomingMatchCard(it) }
+                drawInformation?.takeIf { it.isNotEmpty() }?.let { UpcomingMatchCard(it) }
             }
 
             Column(
